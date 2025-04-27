@@ -3,7 +3,7 @@ import sqlite3
 from datetime import datetime
 import os
 from werkzeug.utils import secure_filename
-import ocr_utils
+#import ocr_utils
 
 app = Flask(__name__)
 
@@ -88,8 +88,9 @@ def upload():
 @app.route('/parse_upload/<filename>')
 def parse_upload(filename):
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    extracted_data = ocr_utils.extract_metrics(filepath)
-
+    #extracted_data = ocr_utils.extract_metrics(filepath)
+    extracted_data = read(filepath)
+    
     if not extracted_data:
         return "Could not extract data from image. Please try manual entry."
 
