@@ -1,11 +1,7 @@
 Flask
 gunicorn
-easyocr
-torch
-torchvision
 numpy
 Pillow
 opencv-python-headless
-scikit-image
 python-bidi
 PyYAML
