@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Report</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-container">
+    <h1 class="neon-heading">{{ username }}'s Progress Report</h1>
+
+    <div class="progress-status">
+      <p><strong>Status:</strong> {{ status }}</p>
+    </div>
+
+    {% if improvements %}
+      <h2 class="neon-subheading">Improvements / Changes:</h2>
+      <ul class="progress-list">
+        {% for improvement in improvements %}
+          <li>{{ improvement }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No significant changes detected yet. Keep pushing! 💪</p>
+    {% endif %}
+
+    <p><a class="glow-button-small" href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+  </div>
+</body>
+</html>

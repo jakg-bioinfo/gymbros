@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Your BMI Report</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="form-body">
+  <div class="form-container">
+    <h1>Upload Your Smart Scale Screenshot</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/png, image/jpeg" required>
+      <button type="submit" class="glow-button">Upload and Analyze</button>
+    </form>
+
+    <p style="margin-top: 20px;">or</p>
+    <p><a class="glow-button-small" href="{{ url_for('manual_entry') }}">Manually Enter Metrics</a></p>
+
+    <p><a class="back-link" href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+  </div>
+</body>
+</html>

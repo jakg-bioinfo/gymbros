@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GymBros Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dashboard-body">
+
+  <!-- Separate STORMWORKS Brand at Very Top -->
+  <div class="brand-banner">
+    <h1 class="stormworks-heading">🚀 STORMWORKS</h1>
+  </div>
+
+  <div class="dashboard-container">
+    <h1 class="neon-heading">GymBros Leaderboard</h1>
+
+    {% if top_user %}
+      <div class="top-performer">🏆 Top Performer: {{ top_user['user'] }} (BMI: {{ (top_user['weight'] / (top_user['height']/100)**2) | round(2) }})</div>
+    {% endif %}
+
+    <p>Average Weight: {{ avg_weight|round(2) }} kg | Average Height: {{ avg_height|round(2) }} cm</p>
+
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Weight (kg)</th>
+          <th>Height (cm)</th>
+          <th>Date</th>
+          <th>Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for metric in metrics %}
+        <tr>
+          <td>{{ metric['user'] }}</td>
+          <td>{{ metric['weight'] }}</td>
+          <td>{{ metric['height'] }}</td>
+          <td>{{ metric['date'] }}</td>
+          <td><a class="profile-link" href="{{ url_for('user_profile', username=metric['user']) }}">View Profile</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Spacing after table -->
+    <div style="margin-top: 40px;">
+      <a class="glow-button-small" href="{{ url_for('upload') }}">Add New Metrics</a>
+    </div>
+
+    <!-- Footer link to creator website -->
+    <div class="footer-credit" style="margin-top: 50px;">
+      <p>Created by <a href="http://jakg.in" target="_blank" style="color: #00BFFF; text-decoration: none;">JAKG</a></p>
+    </div>
+
+  </div>
+</body>
+</html>

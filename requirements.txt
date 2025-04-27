@@ -1,0 +1,9 @@
+flask
+easyocr
+pillow
+numpy
+torch
+torchvision
+torchaudio
+werkzeug
+

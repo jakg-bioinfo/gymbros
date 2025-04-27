@@ -1,0 +1,20 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to GymBros</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="welcome-body">
+  <div class="welcome-container">
+    <h1 class="neon-text">Welcome to GymBros</h1>
+    <p class="tagline">Track. Compete. Dominate.</p>
+    <a href="{{ url_for('dashboard') }}" class="glow-button">Enter Dashboard</a>
+    <a href="{{ url_for('upload') }}" class="glow-button">Upload SmartScale data</a>
+
+  </div>
+</body>
+</html>
+
+
